@@ -29,7 +29,7 @@ exports.login = async function (phone, password, captcha) {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
             },
-            body: queryString(loginBody),
+            body: queryString(loginBody)+'&persistent=true&app=web',
         }, function (err, httpResponse, body) {
             if (err) reject(err);
             resolve(setCookie.parse(httpResponse.headers['set-cookie']));
